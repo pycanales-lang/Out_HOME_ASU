@@ -4,7 +4,7 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QS0FFX4MB"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}  
+  function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-8QS0FFX4MB');
 </script>
@@ -14,165 +14,375 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-body{
-    font-family:'Segoe UI',Tahoma,sans-serif;
-    background:linear-gradient(135deg,#1e3a8a,#2563eb);
-    margin:0; padding:20px;
-    display:flex; justify-content:center; align-items:center;
-    min-height:100vh; user-select:none;
-}
-.container{
-    max-width:520px; width:100%; background:#fff;
-    padding:28px; border-radius:18px;
-    box-shadow:0 20px 40px rgba(0,0,0,.3);
-    position:relative; overflow:hidden;
-}
-.watermark{
-    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
-    font-size:46px; font-weight:900; color:rgba(0,0,0,.04);
-    transform:rotate(-30deg); pointer-events:none;
-}
-.header-main{text-align:center; margin-bottom:20px;}
-.tag{
-    display:inline-block; background:#fbbf24; color:#1e3a8a;
-    padding:5px 16px; border-radius:20px;
-    font-weight:800; font-size:11px; text-transform:uppercase;
-}
-h1{margin:10px 0 0; font-size:34px; font-weight:900; color:#1e3a8a;}
-.sub-title{
-    margin-top:6px; font-size:14px; letter-spacing:4px;
-    text-transform:uppercase; color:#2563eb;
-}
+    body {
+        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        background: linear-gradient(135deg, #0f172a, #1e3a8a);
+        margin: 0;
+        padding: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        -webkit-user-select: none;
+        user-select: none;
+    }
 
-/* ===== NUEVO DISEÑO DE PREMIOS ===== */
-.section-title{
-    margin:18px 0 10px; font-size:13px; font-weight:800;
-    color:#1e293b; text-transform:uppercase; letter-spacing:1px;
-}
-.prize-grid{
-    display:grid; grid-template-columns:1fr; gap:12px; position:relative; z-index:1;
-}
-.prize-card{
-    display:grid; grid-template-columns:60px 1fr 70px;
-    align-items:center; gap:12px;
-    background:#f8fafc; border-radius:14px; padding:12px 14px;
-    border:1px solid #e2e8f0; transition:.2s ease;
-}
-.prize-card:hover{transform:translateY(-2px); box-shadow:0 8px 18px rgba(0,0,0,.12);}
-.win-badge{
-    background:#1e3a8a; color:#fff; font-weight:900;
-    border-radius:12px; text-align:center; padding:10px 0;
-}
-.win-badge span{display:block; font-size:10px; opacity:.8;}
-.prize-info .title{font-weight:800; color:#0f172a;}
-.prize-info .sub{font-size:11px; color:#64748b;}
-.qty{
-    background:#ecfdf5; color:#059669;
-    border-radius:12px; text-align:center; padding:8px 0;
-    font-weight:900; font-size:18px;
-}
-.qty span{display:block; font-size:10px; font-weight:600; opacity:.7;}
+    .container {
+        max-width: 450px;
+        width: 100%;
+        background: #ffffff;
+        padding: 25px;
+        border-radius: 24px;
+        box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+        position: relative;
+        overflow: hidden;
+    }
 
-.criterios-box{
-    margin-top:20px; background:#fffbeb; border-left:4px solid #fbbf24;
-    padding:14px; border-radius:10px; font-size:12px;
-}
-.criterios-box h2{margin:0 0 6px; font-size:13px; color:#92400e;}
-.criterios-box ul,.criterios-box ol{padding-left:18px; margin:6px 0;}
-.footer{
-    margin-top:22px; font-size:10px; text-align:center;
-    color:#94a3b8; letter-spacing:1px; text-transform:uppercase;
-}
+    /* --- HEADER --- */
+    .header-main {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .tag {
+        display: inline-block;
+        background: #fbbf24;
+        color: #1e3a8a;
+        padding: 4px 12px;
+        border-radius: 10px;
+        font-weight: 800;
+        font-size: 10px;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    h1 {
+        color: #1e3a8a;
+        margin: 0;
+        font-size: 32px;
+        font-weight: 900;
+        line-height: 1;
+    }
+
+    .sub-title-main {
+        color: #2563eb;
+        font-size: 18px;
+        font-weight: 700;
+        margin-top: 5px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    /* --- TIMER --- */
+    .timer-section {
+        background: #f1f5f9;
+        border-radius: 16px;
+        padding: 15px;
+        margin-bottom: 20px;
+        text-align: center;
+        border: 1px solid #e2e8f0;
+    }
+
+    .timer-title {
+        font-size: 11px;
+        font-weight: 800;
+        color: #64748b;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+    }
+
+    .progress-container {
+        background: #e2e8f0;
+        border-radius: 10px;
+        height: 10px;
+        overflow: hidden;
+        margin: 10px 0;
+    }
+
+    .progress-bar {
+        height: 100%;
+        background: linear-gradient(90deg, #3b82f6, #10b981);
+        width: 0%;
+        transition: width 1s ease;
+    }
+
+    .countdown {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .count-item { font-size: 20px; font-weight: 800; color: #1e3a8a; }
+    .count-label { font-size: 9px; color: #94a3b8; display: block; text-transform: uppercase; }
+
+    /* --- PREMIOS (NUEVO DISEÑO) --- */
+    .section-divider {
+        background: #1e3a8a;
+        color: white;
+        padding: 8px 15px;
+        border-radius: 8px;
+        font-size: 12px;
+        font-weight: bold;
+        margin: 20px 0 12px 0;
+        text-transform: uppercase;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .prizes-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .prize-card {
+        display: flex;
+        align-items: center;
+        background: #ffffff;
+        border: 1px solid #f1f5f9;
+        border-radius: 14px;
+        padding: 12px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        transition: transform 0.2s;
+    }
+
+    .prize-card:hover { transform: translateY(-2px); border-color: #3b82f6; }
+
+    .winners-badge {
+        background: #eff6ff;
+        color: #2563eb;
+        min-width: 32px;
+        height: 32px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        margin-right: 12px;
+        border: 1px solid #dbeafe;
+    }
+    .winners-badge span { font-size: 8px; text-transform: uppercase; line-height: 1; }
+
+    .prize-info { flex-grow: 1; }
+    .prize-name { display: block; font-weight: 700; color: #1e293b; font-size: 14px; }
+    .prize-brand { font-size: 11px; color: #64748b; }
+
+    .qty-target {
+        text-align: center;
+        padding-left: 12px;
+        border-left: 1px dashed #e2e8f0;
+        min-width: 60px;
+    }
+    .qty-value { display: block; font-size: 18px; font-weight: 900; color: #059669; }
+    .qty-label { font-size: 8px; color: #94a3b8; font-weight: bold; }
+
+    /* --- CRITERIOS --- */
+    .criterios-box {
+        background: #fffbeb;
+        padding: 15px;
+        border-radius: 14px;
+        border: 1px solid #fef3c7;
+        margin-top: 25px;
+    }
+
+    .criterios-box h2 { font-size: 14px; color: #92400e; margin: 0 0 10px 0; display: flex; align-items: center; gap: 5px; }
+    ul, ol { padding-left: 18px; font-size: 12px; color: #78350f; margin: 5px 0; }
+    li { margin-bottom: 4px; }
+
+    .watermark {
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%) rotate(-30deg);
+        font-size: 50px; font-weight: 900;
+        color: rgba(0,0,0,0.02);
+        white-space: nowrap; pointer-events: none; z-index: 0;
+    }
+
+    .footer {
+        margin-top: 20px;
+        font-size: 9px;
+        color: #94a3b8;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
 </style>
 </head>
 <body>
+
 <div class="container">
-<div class="watermark">USO INTERNO • CANALES</div>
+    <div class="watermark">USO INTERNO</div>
 
-<div class="header-main">
-    <span class="tag">Competencia Asesores 2026</span>
-    <h1>ENTRY HOME</h1>
-    <div class="sub-title">Call Outbound</div>
-</div>
+    <div class="header-main">
+        <span class="tag">Competencia 2026</span>
+        <h1>ENTRY HOME</h1>
+        <div class="sub-title-main">Call OUTBOUND</div>
+    </div>
 
-<div class="section-title">Out HOME – ASU</div>
-<div class="prize-grid">
-    <div class="prize-card">
-        <div class="win-badge">4<span>Gan.</span></div>
-        <div class="prize-info"><div class="title">Speaker GO 4</div><div class="sub">JBL</div></div>
-        <div class="qty">20<span>Inst.</span></div>
+    <div class="timer-section">
+        <div id="timer-status" class="timer-title">Cargando...</div>
+        <div class="progress-container">
+            <div id="p-bar" class="progress-bar"></div>
+        </div>
+        <div class="countdown">
+            <div class="count-item"><span id="days">00</span><span class="count-label">Días</span></div>
+            <div class="count-item"><span id="hours">00</span><span class="count-label">Horas</span></div>
+            <div class="count-item"><span id="mins">00</span><span class="count-label">Min</span></div>
+        </div>
     </div>
-    <div class="prize-card">
-        <div class="win-badge">4<span>Gan.</span></div>
-        <div class="prize-info"><div class="title">Mochila Tigo</div><div class="sub">Tigo</div></div>
-        <div class="qty">19<span>Inst.</span></div>
+
+    <div class="section-divider">
+        <span>Out HOME - ASU</span>
+        <span style="font-size: 9px; opacity: 0.8;">Meta Inst.</span>
     </div>
-    <div class="prize-card">
-        <div class="win-badge">3<span>Gan.</span></div>
-        <div class="prize-info"><div class="title">Vale Gs. 200.000</div><div class="sub">Supermercados</div></div>
-        <div class="qty">18<span>Inst.</span></div>
-    </div>
-      <div class="prize-card">
-        <div class="win-badge">4<span>Gan.</span></div>
-        <div class="prize-info"><div class="title">Waflera</div><div class="sub">Super Practico</div></div>
-        <div class="qty">17<span>Inst.</span></div>
-    </div>
+
+    <div class="prizes-grid">
         <div class="prize-card">
-        <div class="win-badge">3<span>Gan.</span></div>
-        <div class="prize-info"><div class="title">Hoppy Azul</div><div class="sub">BUBBA</div></div>
-        <div class="qty">16<span>Inst.</span></div>
-    </div>
+            <div class="winners-badge">4<span>Gan.</span></div>
+            <div class="prize-info">
+                <span class="prize-name">Speaker GO 4</span>
+                <span class="prize-brand">JBL</span>
+            </div>
+            <div class="qty-target">
+                <span class="qty-value">20</span>
+                <span class="qty-label">INSTALADAS</span>
+            </div>
+        </div>
+
         <div class="prize-card">
-        <div class="win-badge">4<span>Gan.</span></div>
-        <div class="prize-info"><div class="title">Vale Gs. 100.000</div><div class="sub">Combustible</div></div>
-        <div class="qty">15<span>Inst.</span></div>
-    </div>
-</div>
+            <div class="winners-badge">4<span>Gan.</span></div>
+            <div class="prize-info">
+                <span class="prize-name">Mochila Tigo</span>
+                <span class="prize-brand">Merchandising</span>
+            </div>
+            <div class="qty-target">
+                <span class="qty-value">19</span>
+                <span class="qty-label">INSTALADAS</span>
+            </div>
+        </div>
 
-<div class="section-title">Out PORTA – ASU</div>
-<div class="prize-grid">
-    <div class="prize-card">
-        <div class="win-badge">1<span>Gan.</span></div>
-        <div class="prize-info"><div class="title">Speaker GO 4</div><div class="sub">JBL</div></div>
-        <div class="qty">24<span>Inst.</span></div>
-    </div>
-    <div class="prize-card">
-        <div class="win-badge">1<span>Gan.</span></div>
-        <div class="prize-info"><div class="title">Mochila Tigo</div><div class="sub">Tigo</div></div>
-        <div class="qty">23<span>Inst.</span></div>
-    </div>
-      <div class="prize-card">
-        <div class="win-badge">1<span>Gan.</span></div>
-        <div class="prize-info"><div class="title">Vale Super Gs. 200.000</div><div class="sub">Supermercados</div></div>
-        <div class="qty">22<span>Inst.</span></div>
-    </div>
-      <div class="prize-card">
-        <div class="win-badge">1<span>Gan.</span></div>
-        <div class="prize-info"><div class="title">Waflera</div><div class="sub">Super Practico</div></div>
-        <div class="qty">21<span>Inst.</span></div>
-    </div>
         <div class="prize-card">
-        <div class="win-badge">1<span>Gan.</span></div>
-        <div class="prize-info"><div class="title">Hoppy Azul</div><div class="sub">BUBBA</div></div>
-        <div class="qty">20<span>Inst.</span></div>
+            <div class="winners-badge">3<span>Gan.</span></div>
+            <div class="prize-info">
+                <span class="prize-name">Vale Gs. 200.000</span>
+                <span class="prize-brand">Supermercados</span>
+            </div>
+            <div class="qty-target">
+                <span class="qty-value">18</span>
+                <span class="qty-label">INSTALADAS</span>
+            </div>
+        </div>
+
+        <div class="prize-card">
+            <div class="winners-badge">4<span>Gan.</span></div>
+            <div class="prize-info">
+                <span class="prize-name">Waflera</span>
+                <span class="prize-brand">Super Práctico</span>
+            </div>
+            <div class="qty-target">
+                <span class="qty-value">17</span>
+                <span class="qty-label">INSTALADAS</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-divider" style="background: #059669;">
+        <span>Out PORTA - ASU</span>
+        <span style="font-size: 9px; opacity: 0.8;">Meta Inst.</span>
+    </div>
+
+    <div class="prizes-grid">
+        <div class="prize-card">
+            <div class="winners-badge">1<span>Gan.</span></div>
+            <div class="prize-info">
+                <span class="prize-name">Speaker GO 4</span>
+                <span class="prize-brand">JBL</span>
+            </div>
+            <div class="qty-target">
+                <span class="qty-value">24</span>
+                <span class="qty-label">INSTALADAS</span>
+            </div>
+        </div>
+
+        <div class="prize-card">
+            <div class="winners-badge">1<span>Gan.</span></div>
+            <div class="prize-info">
+                <span class="prize-name">Mochila Tigo</span>
+                <span class="prize-brand">Merchandising</span>
+            </div>
+            <div class="qty-target">
+                <span class="qty-value">23</span>
+                <span class="qty-label">INSTALADAS</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="criterios-box">
+        <h2>📌 Criterios de Selección</h2>
+        <ul>
+            <li>Generadas: 01 al 14 de Enero.</li>
+            <li>Instaladas: hasta el 18 de Enero.</li>
+        </ul>
+        <h2 style="font-size: 12px; margin-top: 10px;">⚖️ En caso de Empate:</h2>
+        <ol>
+            <li>Mayor cantidad de generadas totales.</li>
+            <li>Mayor Revenue / Plan Pospago.</li>
+        </ol>
+    </div>
+
+    <div class="footer">
+        © 2026 – CANALES | Información Confidencial
     </div>
 </div>
 
-<div class="criterios-box">
-    <h2>📌 Criterios HOME</h2>
-    <ul>
-        <li>Generadas: 01 al 14 de Enero 2026.</li>
-        <li>Instaladas: hasta el 18 de Enero 2026.</li>
-    </ul>
-    <h2>⚖️ Empate</h2>
-    <ol>
-        <li>Mayor cantidad de generadas.</li>
-        <li>Mayor revenue / Mayor Pospago.</li>
-    </ol>
-</div>
+<script>
+    const startDate = new Date('2026-01-01T00:00:00').getTime();
+    const endDate = new Date('2026-01-14T23:59:59').getTime();
 
-<div class="footer">© 2026 – CANALES | Información Exclusiva Interna</div>
-</div>
-<script>document.addEventListener('contextmenu',e=>e.preventDefault());</script>
+    function updateTimer() {
+        const now = new Date().getTime();
+        const totalDuration = endDate - startDate;
+        const pBar = document.getElementById('p-bar');
+        const statusText = document.getElementById('timer-status');
+        
+        if (now < startDate) {
+            statusText.innerText = "LA COMPETENCIA INICIA EN:";
+            showTime(startDate - now);
+            pBar.style.width = "0%";
+        } else if (now > endDate) {
+            statusText.innerText = "COMPETENCIA FINALIZADA";
+            pBar.style.width = "100%";
+            pBar.style.background = "#ef4444";
+            document.getElementById('days').innerText = "00";
+            document.getElementById('hours').innerText = "00";
+            document.getElementById('mins').innerText = "00";
+        } else {
+            statusText.innerText = "TIEMPO RESTANTE PARA EL CIERRE:";
+            const remaining = endDate - now;
+            const progress = ((now - startDate) / totalDuration) * 100;
+            pBar.style.width = progress + "%";
+            
+            if (remaining < (3 * 24 * 60 * 60 * 1000)) {
+                pBar.style.background = "#ef4444";
+                statusText.style.color = "#ef4444";
+            }
+            showTime(remaining);
+        }
+    }
+
+    function showTime(ms) {
+        document.getElementById('days').innerText = Math.floor(ms / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+        document.getElementById('hours').innerText = Math.floor((ms % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+        document.getElementById('mins').innerText = Math.floor((ms % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+    }
+
+    setInterval(updateTimer, 1000);
+    updateTimer();
+
+    document.addEventListener('contextmenu', e => e.preventDefault());
+</script>
+
 </body>
 </html>
